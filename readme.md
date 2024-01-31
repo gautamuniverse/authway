@@ -43,10 +43,6 @@ Note: In case of social login that is using google+ we will not display the rese
 
 ## Folder Structure
 ```
-<<<<<<< HEAD
-=======
-.
->>>>>>> a859d3a4e3ac99fce296eec39e82b1c62858b629
 ├── node_modules
 ├── public
 │   ├── scripts
@@ -74,29 +70,6 @@ Note: In case of social login that is using google+ we will not display the rese
 ├── index.js
 └── package.json
 ```
-=======
-│&nbsp;&nbsp;&nbsp;   ├── config
-│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   ├── mongoose.db.js
-│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── passport&nbsp;config.js
-│&nbsp;&nbsp;&nbsp;   ├── errorHandler
-│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── errorHandler.js
-│&nbsp;&nbsp;&nbsp;   ├── middlewares
-│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── jwt.middleware.js
-│&nbsp;&nbsp;&nbsp;   ├── pages
-│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   ├── homepage.html
-│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── postLogin.html
-│&nbsp;&nbsp;&nbsp;   └── User
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── google.schema.js
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── user.controller.js
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── user.repository.js
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── user.router.js
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       └── user.schema.js
-├── env.variables.js
-├── index.js
-└── package.json
-```
-
->>>>>>> a859d3a4e3ac99fce296eec39e82b1c62858b629
 ## Dependencies
 - bcrypt
 - cookie-parser
