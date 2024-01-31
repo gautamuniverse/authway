@@ -17,7 +17,7 @@ passport.use(
   new GoogleStrategy.Strategy(
     {
       // Options for the google strategy
-      callbackURL: "http://localhost:3767/api/google/redirect",
+      callbackURL: "https://authway.onrender.com/api/google/redirect",
       clientID: process.env.clientID,
       clientSecret: process.env.clientSecret,
     },
