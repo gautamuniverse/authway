@@ -66,10 +66,8 @@ Note: In case of social login that is using google+ we will not display the rese
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── user.repository.js
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── user.router.js
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       └── user.schema.js
-├── .env
 ├── env.variables.js
 ├── index.js
-├── package&nbsp;lock.json
 └── package.json
 
 ## Dependencies
