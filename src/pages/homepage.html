@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authway Homepage</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c340a00dfe.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="home-container">
+      <a href="/">
+        <h1 class="text-center mt-3 text-white text-decoration-underline">
+          Welcome to AuthWay
+        </h1>
+      </a>
+
+      <br />
+      <br />
+      <div class="container">
+        <div class="row text-center home-btns-container" style="width: 100%">
+          <button
+            class="btn btn-success home-btns"
+            data-bs-toggle="modal"
+            data-bs-target="#user-login-modal"
+          >
+            Signin
+          </button>
+          <button
+            class="btn btn-success home-btns"
+            data-bs-toggle="modal"
+            data-bs-target="#user-register-modal"
+          >
+            Signup
+          </button>
+          <button class="btn btn-success home-btns" id="google-login-btn">
+            <i class="fa-brands fa-google fa-lg" style="color: #ffffff"></i
+            ><strong style="font-size: medium">+</strong> Login with Google
+          </button>
+          <div class="row text-center" style="width: 100%">
+            <div class="col">
+              <a
+                class="links btn"
+                data-bs-toggle="modal"
+                data-bs-target="#user-passForgot-modal"
+                >Forgot Password</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------------User Registration Modal-------------- -->
+    <div
+      class="modal fade"
+      id="user-register-modal"
+      tabindex="-1"
+      aria-labelledby="User Modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Register Now
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="/register"
+              id="registration-form"
+              method="post"
+              style="text-align: start"
+            >
+              <div class="mb-3">
+                <label for="name-field" class="form-label">Name</label>
+                <input
+                  name="name"
+                  type="text"
+                  class="form-control"
+                  id="name-field"
+                  aria-describedby="name-field"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email-field" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="email-field"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your email"
+                />
+                <div id="emailHelp" class="form-text">
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="register-password-field" class="form-label"
+                  >Password</label
+                >
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="register-password-field"
+                  placeholder="Enter your password"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="register-password-field-confirm" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  name="password-confirm"
+                  type="password"
+                  class="form-control"
+                  id="register-password-field-confirm"
+                  placeholder="Re-enter password"
+                />
+              </div>
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LfXiWIpAAAAAKBsyKmFd5o353ZpTET_8AQRjnAU"
+                data-callback="registrationCaptcha"
+              ></div>
+              <button type="submit" class="btn btn-success">Register</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <span>Already Registered?</span>
+            <a
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#user-login-modal"
+              >Login</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ------------------------------------------------------------------ -->
+
+    <!-- -------------User Login Modal-------------- -->
+    <div
+      class="modal fade"
+      id="user-login-modal"
+      tabindex="-1"
+      aria-labelledby="User Modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Welcome Back!
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="/login"
+              id="login-form"
+              method="post"
+              style="text-align: start"
+            >
+              <div class="mb-3">
+                <label for="email-field" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="email-field"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password-field" class="form-label">Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="password-field"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LfXiWIpAAAAAKBsyKmFd5o353ZpTET_8AQRjnAU"
+                data-callback="loginCaptcha"
+              ></div>
+              <button type="submit" class="btn btn-success">Login</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ------------------------------------------------------------------ -->
+
+    <!-- ------------------------Password - Forgot------------------------- -->
+    <div
+      class="modal fade"
+      id="user-passForgot-modal"
+      tabindex="-1"
+      aria-labelledby="User Modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Forgot Password
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="/password-forgot"
+              id="password-forgot"
+              method="post"
+              style="text-align: start"
+            >
+              <div class="mb-3">
+                <label for="forgot-email-field" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="forgot-email-field"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LfXiWIpAAAAAKBsyKmFd5o353ZpTET_8AQRjnAU"
+                data-callback="pwdForgotCaptcha"
+              ></div>
+              <button
+                type="submit"
+                class="btn btn-success"
+                id="user-pass-forgot-model"
+                data-bs-toggle="modal"
+                data-bs-target="#user-post-passForgot-modal"
+              >
+                Send OTP
+              </button>
+              <p class="mt-1" style="font-size: small">
+                OTP is only valid for 5 minutes!
+              </p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------------------------------------------- -->
+
+    <!-- ------------------------Password - Forgot - POST - OTP ------------------------- -->
+    <div
+      class="modal fade"
+      id="user-post-passForgot-modal"
+      tabindex="-1"
+      aria-labelledby="User Modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Forgot Password
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="/password-forgot-otp"
+              method="post"
+              style="text-align: start"
+              id="post-password-reset-form"
+            >
+              <div class="mb-3">
+                <label for="post-password-field" class="form-label"
+                  >Enter the OTP sent to your registered email.</label
+                >
+                <input
+                  name="otp"
+                  type="password"
+                  class="form-control"
+                  id="post-password-field"
+                  placeholder="Enter OTP"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+              <div style="margin-left: 5px" id="timer">05:00</div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------------------------------------------- -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/homepage.script.js"></script>
+    <!-- Recaptcha script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </body>
+</html>

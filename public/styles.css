@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(23, 0, 38) !important;
+}
+
+.container{
+    height: 57vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-btns-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+    row-gap: 10px;
+}
+
+.home-btns{
+    max-width: 60%;
+
+}
+
+.links{
+    color: rgb(171, 44, 255);
+    transition: all 0.5s ease;
+}
+
+.links:hover{
+    color:rgb(203, 126, 255);
+} 
+
+.postLogin-btns{
+    display: flex;
+    justify-content: center;
+}
+
+
+#google-login-btn{
+    background-color: #d14c41 !important; 
+    border-color: #dc4336 !important;
+}
+
+#google-login-btn:hover{
+    background-color: #d63223 !important;
+}

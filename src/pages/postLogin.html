@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authway Homepage</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="home-container">
+      <a href="/">
+        <h1 class="text-center mt-3 text-white text-decoration-underline">
+          Welcome to AuthWay
+        </h1>
+      </a>
+
+      <br />
+      <br />
+      <div class="container">
+        <div class="row text-center home-btns-container" style="width: 100%">
+          <button class="btn btn-success home-btns" onclick="signout()">
+            Signout
+          </button>
+          <div class="row postLogin-btns" id="reset-forgot-row">
+            <div class="col" style="max-width: fit-content">
+              <a
+                class="links btn"
+                data-bs-toggle="modal"
+                data-bs-target="#user-passReset-modal"
+                >Reset Password</a
+              >
+            </div>
+            <div class="col" style="max-width: fit-content">
+              <a
+                class="links btn"
+                data-bs-toggle="modal"
+                data-bs-target="#user-passForgot-modal"
+                >Forgot Password</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------------------Password - Forgot------------------------- -->
+    <div
+      class="modal fade"
+      id="user-passForgot-modal"
+      tabindex="-1"
+      aria-labelledby="User Modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Forgot Password
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="/password-forgot"
+              id="password-forgot"
+              method="post"
+              style="text-align: start"
+            >
+              <div class="mb-3">
+                <label for="forgot-email-field" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="forgot-email-field"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LfXiWIpAAAAAKBsyKmFd5o353ZpTET_8AQRjnAU"
+                data-callback="pwdForgotCaptcha"
+              ></div>
+              <button
+                type="submit"
+                class="btn btn-success"
+                id="user-pass-forgot-model"
+                data-bs-toggle="modal"
+                data-bs-target="#user-post-passForgot-modal"
+              >
+                Send OTP
+              </button>
+              <p class="mt-1" style="font-size: small">
+                OTP is only valid for 5 minutes!
+              </p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------------------------------------------- -->
+
+    <!-- ------------------------Password - Forgot - POST - OTP ------------------------- -->
+    <div
+      class="modal fade"
+      id="user-post-passForgot-modal"
+      tabindex="-1"
+      aria-labelledby="User Modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Forgot Password
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="/password-forgot-otp"
+              method="post"
+              style="text-align: start"
+              id="post-password-reset-form"
+            >
+              <div class="mb-3">
+                <label for="post-password-field" class="form-label"
+                  >Enter the OTP sent to your registered email.</label
+                >
+                <input
+                  name="otp"
+                  type="password"
+                  class="form-control"
+                  id="post-password-field"
+                  placeholder="Enter OTP"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+              <div style="margin-left: 5px" id="timer">05:00</div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------------------------------------------- -->
+
+    <!-- ------------------------Password - Reset------------------------- -->
+    <div
+      class="modal fade"
+      id="user-passReset-modal"
+      tabindex="-1"
+      aria-labelledby="User Modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Reset Password
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="password-reset" style="text-align: start">
+              <div class="mb-3">
+                <label for="reset-email-field" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="reset-email-field"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="reset-password-field" class="form-label"
+                  >Password</label
+                >
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="reset-password-field"
+                  aria-describedby="passwordField"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LfXiWIpAAAAAKBsyKmFd5o353ZpTET_8AQRjnAU"
+                data-callback="pwdResetCaptcha"
+              ></div>
+              <button
+                type="submit"
+                class="btn btn-success"
+                id="pasword-reset-submit"
+                data-bs-toggle=""
+                data-bs-target=""
+                onclick="validateEmptyFields()"
+              >
+                Submit
+              </button>
+              <p id="button-info"></p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------------------------------------------- -->
+
+    <!-- ------------------------Post - Password - Reset------------------------- -->
+    <div
+      class="modal fade"
+      id="post-user-passReset-modal"
+      tabindex="-1"
+      aria-labelledby="User Modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Reset Password
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="/password-reset"
+              id="post-password-reset"
+              method="post"
+              style="text-align: start"
+            >
+              <div class="mb-3">
+                <label for="post-reset-password-field" class="form-label"
+                  >New Password</label
+                >
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="post-reset-password-field"
+                  aria-describedby="passwordField"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label
+                  for="consfirm-post-reset-password-field"
+                  class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  name="consfirm-password"
+                  type="password"
+                  class="form-control"
+                  id="consfirm-post-reset-password-field"
+                  aria-describedby="passwordField"
+                  placeholder="Confirm password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-success">
+                Reset Password
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------------------------------------------- -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/scripts/postLogin.script.js"></script>
+
+    <!-- Recaptcha script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </body>
+</html>
