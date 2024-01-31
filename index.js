@@ -2,7 +2,6 @@ import cookieParser from "cookie-parser";
 import "./env.variabls.js";
 import serverplicationError from "./src/errorHandler/errorHandler.js";
 import express from "express";
-import cors from "cors";
 import UserRouter from "./src/User/user.router.js";
 import connectionUsingMongoose from "./src/config/mongoose.db.js";
 import passport from "passport";
