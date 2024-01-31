@@ -42,6 +42,7 @@ Note: In case of social login that is using google+ we will not display the rese
 - Handle google logout using passport library: `GET /api/logout`
 
 ## Folder Structure
+```
 .
 ├── node_modules
 ├── public
@@ -69,6 +70,7 @@ Note: In case of social login that is using google+ we will not display the rese
 ├── env.variables.js
 ├── index.js
 └── package.json
+```
 
 ## Dependencies
 - bcrypt
