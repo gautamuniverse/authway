@@ -45,27 +45,27 @@ Note: In case of social login that is using google+ we will not display the rese
 .
 ├── node_modules
 ├── public
-│&nbsp;&nbsp;&nbsp;├── scripts
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── homepage.script.js
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── postLogin.script.js
-│&nbsp;&nbsp;&nbsp;└── styles.css
+│&nbsp;&nbsp;&nbsp;   ├── scripts
+│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   ├── homepage.script.js
+│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── postLogin.script.js
+│&nbsp;&nbsp;&nbsp;   └── styles.css
 ├── src
-│&nbsp;&nbsp;&nbsp;├── config
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── mongoose.db.js
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── passport&nbsp;config.js
-│&nbsp;&nbsp;&nbsp;├── errorHandler
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── errorHandler.js
-│&nbsp;&nbsp;&nbsp;├── middlewares
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── jwt.middleware.js
-│&nbsp;&nbsp;&nbsp;├── pages
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── homepage.html
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── postLogin.html
-│&nbsp;&nbsp;&nbsp;└── User
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── google.schema.js
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── user.controller.js
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── user.repository.js
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── user.router.js
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── user.schema.js
+│&nbsp;&nbsp;&nbsp;   ├── config
+│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   ├── mongoose.db.js
+│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── passport&nbsp;config.js
+│&nbsp;&nbsp;&nbsp;   ├── errorHandler
+│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── errorHandler.js
+│&nbsp;&nbsp;&nbsp;   ├── middlewares
+│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── jwt.middleware.js
+│&nbsp;&nbsp;&nbsp;   ├── pages
+│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   ├── homepage.html
+│&nbsp;&nbsp;&nbsp;   │&nbsp;&nbsp;&nbsp;   └── postLogin.html
+│&nbsp;&nbsp;&nbsp;   └── User
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── google.schema.js
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── user.controller.js
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── user.repository.js
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       ├── user.router.js
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       └── user.schema.js
 ├── .env
 ├── env.variables.js
 ├── index.js
