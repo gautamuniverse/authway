@@ -96,9 +96,15 @@ Note: In case of social login that is using google+ we will not display the rese
 To get started with Habit Forge:
 
 1. Clone the repository: `git clone https://github.com/gautamuniverse/authway`
-2. Install dependencies: `npm install`
-3. Start the server: `npm start`
-4. Open your browser and navigate to `http://localhost:3767`
+2. Create a .env file in the root directory and make the following key entries:
+- JWT_SECRET (For JWT token creation)
+- DB_URL (mongoDB)
+- clientID (Google oauth2.0 credentials clientId)
+- clientSecret (Google oauth2.0 credentials clientSecret)
+- cookieKey (For creating the express-session cookie)
+3. Install dependencies: `npm install`
+4. Start the server: `npm start`
+5. Open your browser and navigate to `http://localhost:3767`
 
 ## Contact Information
 - **Author:** Gautam
