@@ -87,6 +87,10 @@ Note: In case of social login that is using google+ we will not display the rese
 1. Error handler used for efficiently manage the custom and unhandled errors
 2. dotenv library used for efficiently store the secret information from the client or other users.
 
+## Live Website
+
+[AuthWay](https://authway.onrender.com/)
+
 ## Getting Started
 
 To get started with Habit Forge:
