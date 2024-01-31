@@ -50,7 +50,6 @@ Note: In case of social login that is using google+ we will not display the rese
 │   │   └── postLogin.script.js
 │   └── styles.css
 ├── src
-<<<<<<< HEAD
 │   ├── config
 │   │   ├── mongoose.db.js
 │   │   └── passportconfig.js
