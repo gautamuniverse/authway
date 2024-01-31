@@ -14,7 +14,7 @@ export default class UserController {
 
       //Check if already registerd
       const findUser = await this.userRepository.findByEmail(email);
-      if (findUser)
+      if (!findUser.success)
         return res
           .status(404)
           .send({ success: false, msg: "You are already registered!" });
