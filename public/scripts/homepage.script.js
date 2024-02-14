@@ -84,13 +84,13 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Please verify you are human!");
       return;
     }
+    
 
     //get the form data
     const formData = new FormData(event.target);
 
     //Convert the form data to urlEncodedFormat
     const urlEncodedData = new URLSearchParams(formData).toString();
-
     //Send the data to the server using post fetch request
     fetch("/api/signin", {
       method: "POST",
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //Get the email
         const email = document.getElementById("forgot-email-field").value;
         userEmail = email;
-        const urlEncodedData = new URLSearchParams({ email }).toString();
+        const urlEncodedData = new URLSearchParams({ email, "g-recaptcha-response": forgotCaptcha}).toString();
 
         //make a fetch request to the server
         fetch("/api/forgot-password", {

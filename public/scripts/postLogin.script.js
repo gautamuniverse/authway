@@ -40,7 +40,7 @@ document
       //Get the email
       const email = document.getElementById("forgot-email-field").value;
       userEmail = email;
-      const urlEncodedData = new URLSearchParams({ email }).toString();
+      const urlEncodedData = new URLSearchParams({ email, "g-recaptcha-response": forgotCaptcha }).toString();
 
       //make a fetch request to the server
       fetch("/api/forgot-password", {
@@ -159,7 +159,8 @@ function validateEmptyFields() {
               document.getElementById("button-info").textContent =
                 "Click again";
             } else {
-              return alert("Error: " + data.msg);
+              alert("Error: " + data.msg);
+              window.location.reload();
             }
           })
           .catch((error) => {
@@ -189,7 +190,7 @@ document
 
     //Convert the password to url encoded format
     const urlEncodedData = new URLSearchParams({
-      password: pass.value,
+      password: pass.value
     }).toString();
     //Make a post request to the registration route
     fetch("/api/reset-password/change-pass", {

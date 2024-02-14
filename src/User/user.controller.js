@@ -3,6 +3,8 @@ import UserRepository from "./user.repository.js";
 import UserModel from "./user.schema.js";
 import jwt from "jsonwebtoken";
 import { ObjectId } from "mongodb";
+import AppplicationError from "../errorHandler/errorHandler.js";
+
 
 export default class UserController {
   constructor() {
@@ -11,6 +13,19 @@ export default class UserController {
   async signup(req, res, next) {
     try {
       let { name, email, password } = req.body;
+
+       //Also get the google re captcha response
+       const gRecaptcha = req.body["g-recaptcha-response"];
+       const ip = req.ip;
+ 
+       //Verify the google recaptcha (server side verification)
+       const captchaResult = googleCaptchaValidation(gRecaptcha, ip);
+       captchaResult.then(data => {
+         if(!data.success)
+         return res
+       .status(401)
+       .send({ success: false, msg: "Recaptcha Validation Failed!" });
+       })
 
       //Check if already registerd
       const findUser = await this.userRepository.findByEmail(email);
@@ -48,6 +63,20 @@ export default class UserController {
   async signin(req, res, next) {
     try {
       const { email, password } = req.body;
+
+      //Also get the google re captcha response
+      const gRecaptcha = req.body["g-recaptcha-response"];
+      const ip = req.ip;
+
+      //Verify the google recaptcha (server side verification)
+      const captchaResult = googleCaptchaValidation(gRecaptcha, ip);
+      captchaResult.then(data => {
+        if(!data.success)
+        return res
+      .status(401)
+      .send({ success: false, msg: "Recaptcha Validation Failed!" });
+      })
+
       //Get the user details from the db
       const user = await this.userRepository.findByEmail(email);
       if (!user.success) {
@@ -121,6 +150,18 @@ export default class UserController {
     try {
       const { email } = req.body;
 
+       //Also get the google re captcha response
+       const gRecaptcha = req.body["g-recaptcha-response"];
+       const ip = req.ip;
+       //Verify the google recaptcha (server side verification)
+       const captchaResult = googleCaptchaValidation(gRecaptcha, ip);
+       captchaResult.then(data => {
+         if(!data.success)
+         return res
+       .status(401)
+       .send({ success: false, msg: "Recaptcha Validation Failed!" });
+       })
+
       //Validation (already done in frontend but for double verification)
       if (!email) return res.status(404).send("Email is required!");
 
@@ -190,6 +231,18 @@ export default class UserController {
   async resetPasswordForm(req, res, next) {
     try {
       const { email, password } = req.body;
+
+       //Also get the google re captcha response
+       const gRecaptcha = req.body["g-recaptcha-response"];
+       const ip = req.ip;
+       //Verify the google recaptcha (server side verification)
+       const captchaResult = googleCaptchaValidation(gRecaptcha, ip);
+       captchaResult.then(data => {
+         if(!data.success && data["error-codes"][0] != 'timeout-or-duplicate')
+         return res
+       .status(401)
+       .send({ success: false, msg: "Recaptcha Validation Failed!" });
+       })
 
       if (!email || !password)
         return res.status(404).send({
@@ -264,4 +317,18 @@ export default class UserController {
       next(err);
     }
   }
+}
+//Google recaptcha verification function (Server side )
+function googleCaptchaValidation(gRecapthchaRes, ip)
+{
+  const params = new URLSearchParams({
+    secret: process.env.gCaptchaSecret,
+    response: gRecapthchaRes,
+    remoteip: ip
+  }) ;
+return fetch('https://www.google.com/recaptcha/api/siteverify', {
+    method: "POST",
+    body: params
+  })
+  .then(response => response.json());
 }
