@@ -8,6 +8,7 @@ passport.serializeUser((user, done) => {
   done(null, user._id); //Here we are storing only the user id from mongoDB in the cookie
 });
 
+//Passport.js deserializes the user object from the session and attaches it to the request object. This allows the application to access the user's information without having to re-authenticate the user.
 passport.deserializeUser(async (id, done) => {
   const findUser = await GoogleModel.findById(id);
   if (findUser) done(null, findUser); //pass the user to the next stage/middleware
