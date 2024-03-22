@@ -1,16 +1,31 @@
-body{
-    background-color: rgb(23, 0, 38) !important;
+body {
+    background-image: url('./background.jpg');
+    /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.8)), url('background.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* background-attachment: fixed; */
+    font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
-.container{
-    height: 57vh;
+.headlines {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.home-btns-container{
+.home-btns-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,31 +33,119 @@ body{
     row-gap: 10px;
 }
 
-.home-btns{
+.home-btns {
     max-width: 60%;
-
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    font-weight: 550;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
-.links{
-    color: rgb(171, 44, 255);
+.home-btns:hover {
+    background-color: rgba(225, 225, 225, 0.887);
+    color: black;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.238);
+}
+
+.links {
+    color: rgb(255, 255, 255);
     transition: all 0.5s ease;
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
 }
 
-.links:hover{
-    color:rgb(203, 126, 255);
-} 
+.links:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgba(225, 225, 225, 0.887);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.071);
+}
 
-.postLogin-btns{
+#google-login-btn {
+    background-color: rgba(209, 76, 65, 0.9) !important;
+    border-color: rgba(220, 67, 54, 0.9) !important;
+    transition: all 0.3s ease;
+}
+
+#google-login-btn:hover {
+    background-color: rgba(214, 50, 35, 0.9) !important;
+    border-color: rgba(220, 67, 54, 0.9) !important;
+    transition: all 0.3s ease;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+.modal-header,
+.modal-footer {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-title {
+    color: #fff;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.669);
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.btn-close {
+    color: #fff;
+}
+
+.g-recaptcha {
+    margin-bottom: 10px;
+}
+
+#emailHelp {
+    color: rgba(255, 255, 255, 0.669);
+}
+
+.postLogin-btns {
     display: flex;
     justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    margin-top: 10px;
 }
 
-
-#google-login-btn{
-    background-color: #d14c41 !important; 
-    border-color: #dc4336 !important;
+.links.btn {
+    max-width: fit-content;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    font-weight: 550;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#google-login-btn:hover{
-    background-color: #d63223 !important;
+.links.btn:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgba(225, 225, 225, 0.595);
+}
+
+.postLogin-btns .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
